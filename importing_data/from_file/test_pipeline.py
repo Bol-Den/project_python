@@ -1,5 +1,5 @@
 import pytest
-from pipeline_extract import extract
+from importing_data.from_file.pipeline_extract import extract
 
 @pytest.fixture
 def raw_data():
