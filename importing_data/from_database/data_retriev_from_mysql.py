@@ -10,9 +10,12 @@ def connection(my_host, my_user, my_password, my_database):
      return db_connection
 
 
-def data_retrieval(connection, sql):
+def data_retrieval(connection, query):
      """retrieving data from connected database"""
      my_cursor = connection.cursor()
-     my_cursor.execute(sql)
+     my_cursor.execute(query)
      result = my_cursor.fetchall()
+     my_cursor.close()
+     connection.close()
+     
      return result
