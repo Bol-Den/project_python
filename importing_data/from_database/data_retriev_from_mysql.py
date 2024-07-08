@@ -1,21 +1,21 @@
 
 import mysql.connector as connector
 
-def connection(my_host, my_user, my_password, my_database):
+def connection(my_database):
      """connecting to mysql"""
-     db_connection = connector.connect(host = my_host,
-                                     user = my_user,
-                                     password = my_password,
+     db_connection = connector.connect(host = "localhost",
+                                     user = "root",
+                                     password = "denis1987",
                                      database = my_database)
      return db_connection
 
 
-def data_retrieval(connection, query):
+def data_retrieval(conn, query):
      """retrieving data from connected database"""
-     my_cursor = connection.cursor()
+     my_cursor = conn.cursor()
      my_cursor.execute(query)
      result = my_cursor.fetchall()
      my_cursor.close()
-     connection.close()
-     
+     conn.close()
+
      return result
